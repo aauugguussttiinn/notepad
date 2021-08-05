@@ -14,11 +14,19 @@ const MarkdownInput = () => {
     setNote(event.target.value);
   };
 
+  const handleSave = () => {
+    localStorage.setItem(`${title}`, `${title}`);
+    localStorage.setItem(`${note}`, `${note}`);
+    console.log(localStorage.getItem(`${title}`))
+    console.log(localStorage.getItem(`${note}`)) 
+  }
+
   return (
     <>
       <NoteDisplay title={title} note={note} />
       <input value={title} onChange={onTitleChange} placeholder="Your title" />
       <textarea value={note} onChange={onNoteChange} placeholder="Your note" />
+      <button onClick={handleSave}> Save </button>
     </>
   );
 };
