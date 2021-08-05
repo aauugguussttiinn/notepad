@@ -9,7 +9,7 @@ const MarkdownInput = () => {
   const onTitleChange = (event) => {
     setNote({title: event.target.value, content: note.content});
   };
-  const onNoteChange = (event) => {
+  const onContentChange = (event) => {
     setNote({title: note.title, content: event.target.value});
   };
 
@@ -34,7 +34,7 @@ const MarkdownInput = () => {
       </div>
       <div className="half-height px-5">
         <input value={note.title} onChange={onTitleChange} placeholder="Your title" className="bckg-color p-3" />
-        <textarea value={note.content} onChange={onNoteChange} placeholder="Your note" className="bckg-color p-3" />
+        <textarea value={note.content} onChange={onContentChange} placeholder="Your note" className="bckg-color p-3" />
         <button onClick={handleSave} className="px-5 py-2"> Save </button>
       </div>
     </section>

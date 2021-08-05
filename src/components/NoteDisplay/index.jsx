@@ -2,11 +2,10 @@ import React from 'react';
 import Showdown from 'showdown';
 import "./index.css";
 
-const NoteDisplay = ({title, note}) => {
-  
+const NoteDisplay = ({title, content}) => {
   const converter = new Showdown.Converter();
   const convertedTitle = converter.makeHtml(title)
-  const convertedContent = converter.makeHtml(note)
+  const convertedContent = converter.makeHtml(content)
 
   function createMarkup(data) {
     return {__html: data};
