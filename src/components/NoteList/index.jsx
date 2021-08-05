@@ -1,11 +1,30 @@
 import React from 'react';
 
 const NoteList = () => {
-  const [localStorage, setLocalStorage] = React.useState('');
   
+  const storageDisplay = (key) => {
+    const storageValue = "localStorage.getItem(`${key}`)";
+    // const storageValue = "hello";
+    return (
+      storageValue
+    )
+  }
+
+  storageDisplay()
+
+  // React.useEffect(
+  //   () => {
+  //     storageDisplay();
+  //   },
+  //   []
+  // );
   
   return (
-    <div>test</div>
+    <div>
+      <div>Test</div>
+      <div>{storageDisplay()}</div>
+    </div>
+
   )
 }
 

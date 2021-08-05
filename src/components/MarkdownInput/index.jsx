@@ -4,33 +4,37 @@ import NoteDisplay from 'components/NoteDisplay';
 import "./index.css";
 
 const MarkdownInput = () => {
-  const [note, setNote] = useState('');
-  const [title, setTitle] = useState('');
+  const [note, setNote] = useState(localStorage.getItem(`data`) || {title: "", content: ""});
 
   const onTitleChange = (event) => {
-    setTitle(event.target.value);
+    setNote({title: event.target.value, content: note.content});
   };
-
   const onNoteChange = (event) => {
-    setNote(event.target.value);
+    setNote({title: note.title, content: event.target.value});
   };
 
-  const handleSave = () => {
-    localStorage.setItem(`${title}`, `${title}`);
-    localStorage.setItem(`${note}`, `${note}`);
-    console.log(localStorage.getItem(`${title}`))
-    console.log(localStorage.getItem(`${note}`)) 
-  }
+    React.useEffect(
+      () => {
+        const data = { title: note.title, content: note.content }
+        localStorage.setItem('data', JSON.stringify(data));
+      },
+      [note]
+    );
+
+    const handleSave = () => {
+      console.log('test')
+    };
+  
 
   return (
     <>
     <section className="column-full-height py-3">
       <div className="half-height px-5">
-        <NoteDisplay title={title} note={note} />
+        <NoteDisplay title={note.title} content={note.content} />
       </div>
       <div className="half-height px-5">
-        <input value={title} onChange={onTitleChange} placeholder="Your title" className="bckg-color p-3" />
-        <textarea value={note} onChange={onNoteChange} placeholder="Your note" className="bckg-color p-3" />
+        <input value={note.title} onChange={onTitleChange} placeholder="Your title" className="bckg-color p-3" />
+        <textarea value={note.content} onChange={onNoteChange} placeholder="Your note" className="bckg-color p-3" />
         <button onClick={handleSave} className="px-5 py-2"> Save </button>
       </div>
     </section>
