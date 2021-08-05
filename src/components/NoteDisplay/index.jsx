@@ -13,9 +13,9 @@ const NoteDisplay = ({title, note}) => {
 
   return (
     <>
-      <div>Your title : {title}</div>
-      <div>Your note : {note}</div>
+      <div>Your title :</div>
       <div dangerouslySetInnerHTML={createMarkup(convertedTitle)} />
+      <div>Your note :</div>
       <div dangerouslySetInnerHTML={createMarkup(convertedContent)} />
     </>
   );
