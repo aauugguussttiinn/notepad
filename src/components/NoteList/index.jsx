@@ -1,28 +1,24 @@
 import React from 'react';
+import SingleNote from 'components/SingleNote';
 
 const NoteList = () => {
   
-  const storageDisplay = (key) => {
-    const storageValue = "localStorage.getItem(`${key}`)";
-    // const storageValue = "hello";
-    return (
-      storageValue
-    )
-  }
+  const storageDisplay = (defaultValue, key) => {
+    const storedValue = localStorage.getItem(key);
+    return storedValue !== null ? [JSON.parse(storedValue)] : defaultValue;
+  };
 
-  storageDisplay()
+  const allNotes = storageDisplay([], 'data');
 
-  // React.useEffect(
-  //   () => {
-  //     storageDisplay();
-  //   },
-  //   []
-  // );
   
   return (
     <div>
       <div>Test</div>
-      <div>{storageDisplay()}</div>
+      <div>
+        {
+          allNotes.map(({ title, content }) => <SingleNote title={title} content={content} key={title} /> )
+        }
+      </div>
     </div>
 
   )
