@@ -8,7 +8,7 @@ const App = () => (
   <main>
     <div>Welcome to your NotePad</div>
     <div>
-      <NoteDisplay />
+      {/* <NoteDisplay /> */}
       <MarkdownInput />
     </div>
   </main>

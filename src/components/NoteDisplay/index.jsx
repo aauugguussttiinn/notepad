@@ -1,9 +1,12 @@
 import React from 'react';
 
 
-const NoteDisplay = () => {
+const NoteDisplay = ({title, note}) => {
   return (
-    <div>hello</div>
+    <>
+      <div>{note}</div>
+      <div>{title}</div>
+    </>
   );
 };
 

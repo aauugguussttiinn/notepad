@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import NoteDisplay from 'components/NoteDisplay';
 
 const MarkdownInput = () => {
   const [note, setNote] = useState('');
@@ -15,6 +16,7 @@ const MarkdownInput = () => {
 
   return (
     <>
+      <NoteDisplay data={title, note} />
       <div>Title: {title}</div>
       <input value={title} onChange={onTitleChange} />
       <div>Your note: {note}</div>
