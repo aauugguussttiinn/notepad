@@ -19,3 +19,10 @@ input:focus, textarea:focus {
   color: white;
   opacity: 0.8; 
 }
+
+button {
+  background-color: #c70625;
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+}

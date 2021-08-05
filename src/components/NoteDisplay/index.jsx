@@ -1,5 +1,6 @@
 import React from 'react';
 import Showdown from 'showdown';
+import "./index.css";
 
 const NoteDisplay = ({title, note}) => {
   
@@ -13,10 +14,8 @@ const NoteDisplay = ({title, note}) => {
 
   return (
     <>
-      <div>Your title :</div>
-      <div dangerouslySetInnerHTML={createMarkup(convertedTitle)} />
-      <div>Your note :</div>
-      <div dangerouslySetInnerHTML={createMarkup(convertedContent)} />
+      <h1 className="text-red" dangerouslySetInnerHTML={createMarkup(convertedTitle)} />
+      <div className="text-white" dangerouslySetInnerHTML={createMarkup(convertedContent)} />
     </>
   );
 };
