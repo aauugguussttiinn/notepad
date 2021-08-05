@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import NoteDisplay from 'components/NoteDisplay';
+import "./index.css";
 
 const MarkdownInput = () => {
   const [note, setNote] = useState('');
@@ -23,10 +24,17 @@ const MarkdownInput = () => {
 
   return (
     <>
-      <NoteDisplay title={title} note={note} />
-      <input value={title} onChange={onTitleChange} placeholder="Your title" />
-      <textarea value={note} onChange={onNoteChange} placeholder="Your note" />
-      <button onClick={handleSave}> Save </button>
+    <section className="column-full-height">
+      <div className="half-height">
+        <NoteDisplay title={title} note={note} />
+      </div>
+      <div className="half-height px-3">
+        <input value={title} onChange={onTitleChange} placeholder="Your title" className="bckg-color p-3" />
+        <textarea value={note} onChange={onNoteChange} placeholder="Your note" className="bckg-color p-3" />
+        <button onClick={handleSave}> Save </button>
+      </div>
+    </section>
+
     </>
   );
 };
