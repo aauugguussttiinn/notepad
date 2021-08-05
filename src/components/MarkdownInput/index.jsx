@@ -16,11 +16,9 @@ const MarkdownInput = () => {
 
   return (
     <>
-      <NoteDisplay data={title, note} />
-      <div>Title: {title}</div>
-      <input value={title} onChange={onTitleChange} />
-      <div>Your note: {note}</div>
-      <textarea value={note} onChange={onNoteChange} />
+      <NoteDisplay title={title} note={note} />
+      <input value={title} onChange={onTitleChange} placeholder="Your title" />
+      <textarea value={note} onChange={onNoteChange} placeholder="Your note" />
     </>
   );
 };
