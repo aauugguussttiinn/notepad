@@ -13,13 +13,24 @@ const MarkdownInput = () => {
     setNote({title: note.title, content: event.target.value});
   };
 
-    React.useEffect(
-      () => {
-        const data = { title: note.title, content: note.content }
-        localStorage.setItem('data', JSON.stringify(data));
-      },
-      [note]
-    );
+  React.useEffect(() => {
+    const localStorageLength = localStorage.length;
+    console.log(localStorageLength)
+    console.log('1234')
+    if (localStorageLength > 0) {
+      const storageContent = localStorage.getItem(localStorage.key(0));
+      const convertedNote = JSON.parse(storageContent);
+      setNote(convertedNote);
+    }
+  }, []);
+
+  React.useEffect(
+    () => {
+      const data = { title: note.title, content: note.content }
+      localStorage.setItem('data', JSON.stringify(data));
+    },
+    [note]
+  );
 
     const handleSave = () => {
       console.log('test')
